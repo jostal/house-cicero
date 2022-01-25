@@ -1,4 +1,4 @@
-import CsvToJson from "../components/csvToJson"
+import CsvToJson from "../components/CsvToJson"
 
 export default function chores() {
 
