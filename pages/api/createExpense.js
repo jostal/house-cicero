@@ -2,7 +2,7 @@ const server = 'http://localhost:3000';
 const fs = require('fs');
 
 async function calculateDebts(data) {
-  const currentAmounts = JSON.parse(fs.readFileSync('public/owedAmounts.json'));
+  const currentAmounts = JSON.parse(fs.readFileSync('/owedAmounts.json'));
   const owedByEach = Math.round(((parseFloat(data.amount) / data.splitWith.length) + Number.EPSILON) * 100) / 100;
   await data.splitWith.map(p => {
     currentAmounts[p][0][data.paidBy] = owedByEach + currentAmounts[p][0][data.paidBy];
