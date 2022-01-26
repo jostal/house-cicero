@@ -1,17 +1,17 @@
 const fs = require('fs');
 
 async function deductAmount(data) {
-  const currentAmounts = JSON.parse(fs.readFileSync('/owedAmounts.json'));
+  const currentAmounts = JSON.parse(fs.readFileSync('./data/owedAmounts.json'));
   const amountToDeduct = data.amount;
   currentAmounts[data.paidBy][0][data.paid] = currentAmounts[data.paidBy][0][data.paid] - amountToDeduct;
-  fs.writeFileSync('public/owedAmounts.json', JSON.stringify(currentAmounts));
+  fs.writeFileSync('./data/owedAmounts.json', JSON.stringify(currentAmounts));
 }
 
 async function appendHistory(data) {
-  const hist = JSON.parse(fs.readFileSync('/transactionHistory.json'));
+  const hist = JSON.parse(fs.readFileSync('./data/transactionHistory.json'));
   hist['transactions'].push(data);
   console.log(hist);
-  fs.writeFileSync('/transactionHistory.json', JSON.stringify(hist));
+  fs.writeFileSync('./data/transactionHistory.json', JSON.stringify(hist));
 }
 
 export default function handler(req, res) {

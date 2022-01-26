@@ -2,7 +2,7 @@ const server = 'http://localhost:3000';
 const fs = require('fs');
 
 async function calculateDebts(data) {
-  const currentAmounts = JSON.parse(fs.readFileSync('/owedAmounts.json'));
+  const currentAmounts = JSON.parse(fs.readFileSync('./data/owedAmounts.json'));
   const owedByEach = Math.round(((parseFloat(data.amount) / data.splitWith.length) + Number.EPSILON) * 100) / 100;
   await data.splitWith.map(p => {
     currentAmounts[p][0][data.paidBy] = owedByEach + currentAmounts[p][0][data.paidBy];
@@ -19,10 +19,10 @@ async function calculateDebts(data) {
 }
 
 async function appendHistory(data) {
-  const hist = JSON.parse(fs.readFileSync('public/transactionHistory.json'));
+  const hist = JSON.parse(fs.readFileSync('./data/transactionHistory.json'));
   hist['transactions'].push(data);
   console.log(hist);
-  fs.writeFileSync('public/transactionHistory.json', JSON.stringify(hist));
+  fs.writeFileSync('./data/transactionHistory.json', JSON.stringify(hist));
 }
 
 export default function handler(req, res) {
