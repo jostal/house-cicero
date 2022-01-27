@@ -8,7 +8,7 @@ export default function DebtForm(props) {
   const handleSubmit = async(e) => {
     e.preventDefault();
 
-    const response = await fetch('api/payDebt', {
+    const response = await fetch('http://99.225.180.173:1337/payDebt', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

@@ -12,7 +12,7 @@ export default function OwedAmounts(props) {
 
   useEffect(() => {
     const fetchAmounts = async() => {
-      const res = await fetch('/api/getOwedAmounts');
+      const res = await fetch('http://99.225.180.173:1337/getOwedAmounts');
       const data = await res.json();
       setAmounts(JSON.parse(JSON.stringify(data)));
       setIsLoading(false);
@@ -22,8 +22,9 @@ export default function OwedAmounts(props) {
   
   useEffect(() => {
     const fetchAmounts = async() => {
-      const res = await fetch('/api/getOwedAmounts');
+      const res = await fetch('http://99.225.180.173:1337/getOwedAmounts');
       const data = await res.json();
+      console.log(data);
       setAmounts(JSON.parse(JSON.stringify(data)));
       setIsLoading(false);
     };
