@@ -5,7 +5,11 @@ export default function TransactionHistory(props) {
 
   useEffect(() => {
     const fetchHistory = async() => {
+<<<<<<< HEAD
       const res = await fetch('//99.225.180.173:1337/getTransactionHistory');
+=======
+      const res = await fetch('//99.225.180.173:1337/getTransactionHistory');
+>>>>>>> 4fbc184d5166c5535361e9b176682d145ece5619
       const data = await res.json();
       console.log(data);
       console.log(data['transactions'].length)
