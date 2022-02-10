@@ -4,7 +4,7 @@ export default function finance() {
   
   return (
     <div>
-      <p>Debts not loading? Click <a href="https://99.225.180.173:1337">here</a></p>
+      <p className="text-center">Debts not loading? Click <a href="https://99.225.180.173:1337"><em>here</em></a></p>
       <OwedAmounts />
     </div>
   )
