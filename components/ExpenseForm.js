@@ -12,7 +12,7 @@ export default function ExpenseForm(props) {
   const handleSubmit = async(e) => {
     e.preventDefault();
 
-    const reponse = await fetch('99.225.180.173:1337/createExpense', {
+    const reponse = await fetch('//99.225.180.173:1337/createExpense', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
